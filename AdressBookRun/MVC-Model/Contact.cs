@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
+using System.Xml;
+using System.Collections;
+using System.Runtime.Serialization;
 
 
 namespace MVC_Model
 {
    
-    [Serializable()]
     public class Contact
     {
         public enum TypeOfContact
         {
             Phone = 1, Email = 2
         }
-        [XmlElement("FirstName")]
         private string _FirstName;
         public string FirstName
         {
@@ -30,7 +30,6 @@ namespace MVC_Model
 
             }
         }
-        [XmlElement("LastName")]
         private string _LastName;
         public string LastName
         {
@@ -44,20 +43,6 @@ namespace MVC_Model
 
             }
         }
-        [XmlElement("Email")]
-        private  string _Email;
-        public  string Email
-        {
-            get { return _Email; }
-            set
-            {
-                if (value.Length > 50)
-                    Console.WriteLine("Error! FirstName must be less than 51 characters!");
-                else
-                    _Email= value;
-            }
-        }
-        [XmlElement("Phone")]
         private string _Phone;
         public string Phone
         {
@@ -70,14 +55,6 @@ namespace MVC_Model
                     _Phone = value;
             }
         }
-        [XmlElement("Type")]
-        private TypeOfContact _Type;
-        public TypeOfContact Type
-        {
-            get { return _Type; }
-            set { _Type = value; }
-        }
-        [XmlElement("ID")]
         private string _ID;
         public string ID
         {
@@ -90,15 +67,17 @@ namespace MVC_Model
                     _ID = value;
             }
         }
-        public Contact(string fn, string ln, string var, string ID , TypeOfContact type)
+        public Contact(string fn, string ln, string var, string ID )
         {
             _FirstName = fn;
             _LastName = ln;
-            if (type.ToString() == "Phone")
-                _Phone = var;
-            else
-                _Email = var;
-            _ID=ID;
+            _Phone = var;
+            _ID = ID;
+        
+        }
+        public Contact()
+        {
+
         }          
      
     }

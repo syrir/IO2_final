@@ -40,18 +40,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.First = new System.Windows.Forms.TextBox();
+            this.Last = new System.Windows.Forms.TextBox();
+            this.phone = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(12, 12);
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(297, 386);
-            this.listView1.TabIndex = 0;
+            this.listView1.Size = new System.Drawing.Size(297, 441);
+            this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.listView1.TabIndex = 5;
+            this.listView1.TileSize = new System.Drawing.Size(10, 10);
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // radioButton1
             // 
@@ -60,7 +68,6 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(66, 17);
             this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Telefony";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
@@ -71,7 +78,6 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(50, 17);
             this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Email";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
@@ -83,6 +89,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Wyswietl";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -92,6 +99,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Wyjdź";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -101,6 +109,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Edytuj";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -110,15 +119,17 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Usuń";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(419, 294);
+            this.button5.Location = new System.Drawing.Point(407, 294);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(87, 23);
             this.button5.TabIndex = 7;
-            this.button5.Text = "Zapisz";
+            this.button5.Text = "Zapisz/Dodaj";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -156,35 +167,46 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Telefon/email";
             // 
-            // textBox1
+            // First
             // 
-            this.textBox1.Location = new System.Drawing.Point(452, 138);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 13;
+            this.First.Location = new System.Drawing.Point(452, 138);
+            this.First.Name = "First";
+            this.First.Size = new System.Drawing.Size(100, 20);
+            this.First.TabIndex = 13;
             // 
-            // textBox2
+            // Last
             // 
-            this.textBox2.Location = new System.Drawing.Point(452, 164);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 14;
+            this.Last.Location = new System.Drawing.Point(452, 164);
+            this.Last.Name = "Last";
+            this.Last.Size = new System.Drawing.Size(100, 20);
+            this.Last.TabIndex = 14;
             // 
-            // textBox3
+            // phone
             // 
-            this.textBox3.Location = new System.Drawing.Point(452, 194);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 15;
+            this.phone.Location = new System.Drawing.Point(452, 194);
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(100, 20);
+            this.phone.TabIndex = 15;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(626, 184);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 16;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // AdressView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 441);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.phone);
+            this.Controls.Add(this.Last);
+            this.Controls.Add(this.First);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -206,7 +228,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button button1;
@@ -218,8 +239,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox First;
+        private System.Windows.Forms.TextBox Last;
+        private System.Windows.Forms.TextBox phone;
+        internal System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button button7;
     }
 }
