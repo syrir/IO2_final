@@ -23,7 +23,7 @@ namespace AdressBookRun
             AdressView view = new AdressView();
             view.Visible = false;
             List<Contact>  contacts = new List<Contact>();
-            contacts.Add(new Contact("a","b","1","0"));
+           // contacts.Add(new Contact("a","b","1","0"));
             ContactController controller = new ContactController(view,contacts);
             view.ShowDialog();
 

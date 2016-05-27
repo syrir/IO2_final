@@ -137,10 +137,18 @@ namespace MVC_Controler
         }
 
 
-        public void LoadFromFile(List<Contact> list, string _fn)
+        public void LoadFromFile(string _fn)
         {
             StorageService xd = new StorageService();
-            list=xd.Load(_fn);
+            try
+            {
+                _users = xd.Load(_fn);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Musisz najpierw cos zapisac żeby odczytywać");
+            }
+            LoadView();
     
         }
 

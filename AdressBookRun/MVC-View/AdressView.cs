@@ -48,6 +48,15 @@ namespace MVC_View
                 string v = n.ToString();
                 this._controller.AddNewContact(this.First.Text, this.Last.Text, this.phone.Text, v);
                 this._controller.Save();
+                if (radioButton1.Checked)
+                {
+                    _controller.UpdateFile(_controller.Users,file);
+
+                }
+                else
+                {
+                    _controller.UpdateFile(_controller.Users,file2);
+                }
                 Clear_Fields();
             }
 
@@ -56,18 +65,27 @@ namespace MVC_View
         private void button4_Click(object sender, EventArgs e)
         {
             this._controller.RemoveContact();
+            if (radioButton1.Checked)
+            {
+                _controller.UpdateFile(_controller.Users, file);
+
+            }
+            else
+            {
+                _controller.UpdateFile(_controller.Users, file2);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if(radioButton1.Checked)
             {
-                //_controller.LoadFromFile(_controller.Users,file);
+                _controller.LoadFromFile(file);
                
             }
             else
             {
-               // _controller.LoadFromFile(_controller.Users, file2);
+                _controller.LoadFromFile(file2);
             }
             this._controller.LoadView();
 
@@ -86,6 +104,15 @@ namespace MVC_View
             }
             this._controller.Save();
             Clear_Fields();
+            if (radioButton1.Checked)
+            {
+                _controller.UpdateFile(_controller.Users, file);
+
+            }
+            else
+            {
+                _controller.UpdateFile(_controller.Users, file2);
+            }
         }
         #endregion
 
@@ -191,15 +218,12 @@ namespace MVC_View
 
         #endregion
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-            _controller.UpdateFile(_controller.Users,file);
+            Clear_Fields();
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            _controller.LoadFromFile(_controller.Users, file);
-        }
+        
 
     }
 }

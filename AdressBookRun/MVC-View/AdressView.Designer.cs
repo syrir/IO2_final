@@ -43,8 +43,6 @@
             this.First = new System.Windows.Forms.TextBox();
             this.Last = new System.Windows.Forms.TextBox();
             this.phone = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -104,7 +102,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(419, 375);
+            this.button3.Location = new System.Drawing.Point(466, 285);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 5;
@@ -114,7 +112,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(514, 375);
+            this.button4.Location = new System.Drawing.Point(556, 285);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 6;
@@ -124,7 +122,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(407, 294);
+            this.button5.Location = new System.Drawing.Point(360, 285);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(87, 23);
             this.button5.TabIndex = 7;
@@ -134,12 +132,13 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(514, 294);
+            this.button6.Location = new System.Drawing.Point(477, 236);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 8;
             this.button6.Text = "Wyczyść";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label2
             // 
@@ -189,33 +188,11 @@
             this.phone.Size = new System.Drawing.Size(100, 20);
             this.phone.TabIndex = 15;
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(662, 141);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 16;
-            this.button7.Text = "zapisz";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(662, 170);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 17;
-            this.button8.Text = "wczytaj";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
             // AdressView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 441);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this.phone);
             this.Controls.Add(this.Last);
             this.Controls.Add(this.First);
@@ -255,7 +232,5 @@
         private System.Windows.Forms.TextBox Last;
         private System.Windows.Forms.TextBox phone;
         internal System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
     }
 }

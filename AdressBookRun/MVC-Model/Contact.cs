@@ -77,7 +77,7 @@ namespace MVC_Model
         }
         public Contact()
         {
-
+          
         }          
      
     }
