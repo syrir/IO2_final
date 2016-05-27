@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
@@ -130,8 +130,9 @@ namespace MVC_Controler
         }
         public void UpdateFile( IList  list,string _fn)
         {
+            var newlist = list as List<Contact>;
             list.Clear();
-            xd.Save(_fn, list);
+            xd.Save(_fn, newlist);
             
             
         }           
@@ -139,6 +140,12 @@ namespace MVC_Controler
         
         public void LoadFromFile(IList list, string _fn)
         {
+            var newlist = xd.Load(_fn);
+            foreach (var item in newlist)
+            {
+                list.Add(item);
+            }
+            
     
         }
 

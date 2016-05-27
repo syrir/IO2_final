@@ -1,3 +1,4 @@
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\obj\Debug\MVC-Controler.csprojResolveAssemblyReference.cache
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\bin\Debug\MVC-Controler.dll
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\bin\Debug\MVC-Controler.pdb
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\bin\Debug\MVC-Model.dll
@@ -5,6 +6,5 @@ D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\bin\Debug
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\bin\Debug\MVC-Model.pdb
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\bin\Debug\Newtonsoft.Json.pdb
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\bin\Debug\Newtonsoft.Json.xml
-D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\obj\Debug\MVC-Controler.csprojResolveAssemblyReference.cache
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\obj\Debug\MVC-Controler.dll
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Controler\obj\Debug\MVC-Controler.pdb
