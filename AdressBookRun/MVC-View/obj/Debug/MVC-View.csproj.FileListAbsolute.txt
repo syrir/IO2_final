@@ -2,10 +2,13 @@ D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\bin\Debug\MVC-
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\bin\Debug\MVC-View.pdb
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\bin\Debug\MVC-Controler.dll
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\bin\Debug\MVC-Model.dll
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\bin\Debug\Newtonsoft.Json.dll
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\bin\Debug\MVC-Controler.pdb
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\bin\Debug\MVC-Model.pdb
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\bin\Debug\Newtonsoft.Json.pdb
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\bin\Debug\Newtonsoft.Json.xml
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\obj\Debug\MVC-View.csprojResolveAssemblyReference.cache
-D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\obj\Debug\MVC-View.dll
-D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\obj\Debug\MVC-View.pdb
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\obj\Debug\MVC_View.AdressView.resources
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\obj\Debug\MVC-View.csproj.GenerateResource.Cache
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\obj\Debug\MVC-View.dll
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-View\obj\Debug\MVC-View.pdb

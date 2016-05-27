@@ -9,7 +9,7 @@ using Newtonsoft.Json.Bson;
 
 namespace MVC_Model
 {
-    class StorageService
+    public class StorageService
     {
         public void Save(string filename, IEnumerable<Contact> contacts)
         {

@@ -13,6 +13,7 @@ using System.IO;
 using MVC_Model;
 
 
+
 namespace MVC_Controler
 {
    public class ContactController
@@ -20,7 +21,10 @@ namespace MVC_Controler
         IAdressView _view;
         public IList _users;
         Contact _selectedContact;
-        string _file_name="bazadanych";
+        StorageService xd;
+      
+
+
 
         public ContactController(IAdressView view, IList users)
         {
@@ -115,7 +119,6 @@ namespace MVC_Controler
                 // Add new user
                 this._users.Add(_selectedContact);
                 this._view.AddContactToGrid(_selectedContact);
-                UpdateFile(_users, _file_name);
             }
             else
             {
@@ -127,6 +130,9 @@ namespace MVC_Controler
         }
         public void UpdateFile( IList  list,string _fn)
         {
+            list.Clear();
+            xd.Save(_fn, list);
+            
             
         }           
 

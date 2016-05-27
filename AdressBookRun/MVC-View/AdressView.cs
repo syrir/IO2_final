@@ -38,10 +38,16 @@ namespace MVC_View
 
         private void button5_Click(object sender, EventArgs e)
         {
-
-                this._controller.AddNewContact(this.First.Text,this.Last.Text,this.phone.Text,this._controller.Users.Count.ToString());
+            int c = 0;
+            if (this.First.Text.Length > 0) c++;
+            if (this.Last.Text.Length > 0) c++;
+            if (this.phone.Text.Length > 0) c++;
+            if(c>0)
+            {
+                this._controller.AddNewContact(this.First.Text, this.Last.Text, this.phone.Text, this._controller.Users.Count.ToString());
                 this._controller.Save();
                 Clear_Fields();
+            }
 
         }
 
@@ -52,14 +58,14 @@ namespace MVC_View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*if (radioButton1.Checked)
+            if(radioButton1.Checked)
             {
                 _controller.LoadFromFile(_controller.Users, file);
             }
             else
             {
                 _controller.LoadFromFile(_controller.Users, file2);
-            }*/
+            }
             this._controller.LoadView();
 
         }
@@ -181,18 +187,6 @@ namespace MVC_View
         }
 
         #endregion
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            if(radioButton1.Checked)
-            this._controller.UpdateFile(this._controller.Users, file);
-            else
-            this._controller.UpdateFile(this._controller.Users, file2);
-        }
-
-        
-
-        
 
     }
 }

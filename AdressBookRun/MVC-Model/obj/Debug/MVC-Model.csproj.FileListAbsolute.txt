@@ -1,5 +1,7 @@
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Model\bin\Debug\MVC-Model.dll
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Model\bin\Debug\MVC-Model.pdb
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Model\bin\Debug\Newtonsoft.Json.dll
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Model\bin\Debug\Newtonsoft.Json.pdb
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Model\bin\Debug\Newtonsoft.Json.xml
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Model\obj\Debug\MVC-Model.dll
 D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Model\obj\Debug\MVC-Model.pdb
-D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\MVC-Model\obj\Debug\MVC-Model.csprojResolveAssemblyReference.cache
