@@ -130,9 +130,14 @@ namespace MVC_Controler
         }
         public void UpdateFile( IList  list,string _fn)
         {
-            var newlist = list as List<Contact>;
+            List<Contact> temp = new List<Contact>();
+            foreach (Contact item in list)
+            {
+                temp.Add(item);
+            }
+
             list.Clear();
-            xd.Save(_fn, newlist);
+            xd.Save(_fn, temp);
             
             
         }           
