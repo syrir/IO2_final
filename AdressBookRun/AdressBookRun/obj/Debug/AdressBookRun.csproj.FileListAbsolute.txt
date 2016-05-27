@@ -1,0 +1,13 @@
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\bin\Debug\AdressBookRun.exe
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\bin\Debug\AdressBookRun.pdb
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\bin\Debug\MVC-Controler.dll
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\bin\Debug\MVC-Model.dll
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\bin\Debug\MVC-View.dll
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\bin\Debug\MVC-Controler.pdb
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\bin\Debug\MVC-Model.pdb
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\bin\Debug\MVC-View.pdb
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\obj\Debug\AdressBookRun.csprojResolveAssemblyReference.cache
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\obj\Debug\AdressBookRun.Properties.Resources.resources
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\obj\Debug\AdressBookRun.csproj.GenerateResource.Cache
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\obj\Debug\AdressBookRun.exe
+D:\Dropbox\PP\Informatyka\Projekty\IO2\GIT\AdressBookRun\AdressBookRun\obj\Debug\AdressBookRun.pdb
