@@ -16,8 +16,8 @@ namespace MVC_View
 {
     public partial class AdressView : Form,IAdressView
     {
-        private string file="plik";
-        private string file2 ="plik2";
+        private string file="plik.xml";
+        private string file2 ="plik2.xml";
         public AdressView()
         {
             InitializeComponent();
@@ -44,7 +44,9 @@ namespace MVC_View
             if (this.phone.Text.Length > 0) c++;
             if(c>0)
             {
-                this._controller.AddNewContact(this.First.Text, this.Last.Text, this.phone.Text, this._controller.Users.Count.ToString());
+                int n = this._controller.Users.Count;
+                string v = n.ToString();
+                this._controller.AddNewContact(this.First.Text, this.Last.Text, this.phone.Text, v);
                 this._controller.Save();
                 Clear_Fields();
             }
@@ -60,11 +62,12 @@ namespace MVC_View
         {
             if(radioButton1.Checked)
             {
-                _controller.LoadFromFile(_controller.Users, file);
+                //_controller.LoadFromFile(_controller.Users,file);
+               
             }
             else
             {
-                _controller.LoadFromFile(_controller.Users, file2);
+               // _controller.LoadFromFile(_controller.Users, file2);
             }
             this._controller.LoadView();
 
@@ -104,7 +107,7 @@ namespace MVC_View
             this.listView1.Columns.Add("Phone/Email",94,HorizontalAlignment.Left);
 
             this.listView1.Items.Clear();
-            _controller.UpdateFile(_controller.Users,file);
+          
 
         }
        public void AddContactToGrid(Contact user)
@@ -114,7 +117,7 @@ namespace MVC_View
             parent.SubItems.Add(user.FirstName);
             parent.SubItems.Add(user.LastName);
             parent.SubItems.Add(user.Phone);
-            _controller.UpdateFile(_controller.Users,file);
+            
         }
        public void UpdateGridWithChangedContact(Contact user)
         {
@@ -135,7 +138,7 @@ namespace MVC_View
 
 
             }
-            _controller.UpdateFile(_controller.Users,file);
+          
         }
        public void RemoveContactFromGrid(Contact user)
         {
@@ -151,7 +154,7 @@ namespace MVC_View
             {
                 this.listView1.Items.Remove(rowToDelete);
                 this.listView1.Focus();
-                _controller.UpdateFile(_controller.Users,file);
+                
             }
         }
 
@@ -187,6 +190,16 @@ namespace MVC_View
         }
 
         #endregion
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            _controller.UpdateFile(_controller.Users,file);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            _controller.LoadFromFile(_controller.Users, file);
+        }
 
     }
 }

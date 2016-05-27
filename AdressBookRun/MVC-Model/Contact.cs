@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 
 namespace MVC_Model
 {
-   
+   [Serializable]
     public class Contact
     {
         public enum TypeOfContact

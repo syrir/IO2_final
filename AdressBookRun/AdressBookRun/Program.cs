@@ -22,7 +22,7 @@ namespace AdressBookRun
         {
             AdressView view = new AdressView();
             view.Visible = false;
-            IList contacts=new ArrayList();
+            List<Contact>  contacts = new List<Contact>();
             contacts.Add(new Contact("a","b","1","0"));
             ContactController controller = new ContactController(view,contacts);
             view.ShowDialog();

@@ -19,22 +19,22 @@ namespace MVC_Controler
    public class ContactController
     {
         IAdressView _view;
-        public IList _users;
+        public List<Contact> _users;
         Contact _selectedContact;
-        StorageService xd;
+
       
 
 
 
-        public ContactController(IAdressView view, IList users)
+        public ContactController(IAdressView view, List<Contact> users)
         {
             _view = view;
             _users = users;
             view.SetController(this);
         }
-        public IList Users
+        public List<Contact>  Users
         {
-            get { return ArrayList.Adapter(_users); }
+            get { return _users; }
         }
 
         private void updateViewDetailValues(Contact usr)
@@ -128,29 +128,19 @@ namespace MVC_Controler
             _view.SetSelectedContactInGrid(_selectedContact);
 
         }
-        public void UpdateFile( IList  list,string _fn)
+        public void UpdateFile(List<Contact> list, string _fn)
         {
-            List<Contact> temp = new List<Contact>();
-            foreach (Contact item in list)
-            {
-                temp.Add(item);
-            }
-
-            list.Clear();
-            xd.Save(_fn, temp);
+            StorageService xd = new StorageService();
+            xd.Save(_fn, list);
             
             
-        }           
+        }
 
-        
-        public void LoadFromFile(IList list, string _fn)
+
+        public void LoadFromFile(List<Contact> list, string _fn)
         {
-            var newlist = xd.Load(_fn);
-            foreach (var item in newlist)
-            {
-                list.Add(item);
-            }
-            
+            StorageService xd = new StorageService();
+            list=xd.Load(_fn);
     
         }
 
