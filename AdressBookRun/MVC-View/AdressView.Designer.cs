@@ -210,6 +210,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "AdressView";
             this.Text = "AdressView";
+            this.Load += new System.EventHandler(this.AdressView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

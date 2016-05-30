@@ -1,34 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using MVC_Model;
 using MVC_Controler;
-
+using MVC_Model;
 
 namespace MVC_View
 {
-    public partial class AdressView : Form,IAdressView
+    public partial class AdressView : Form, IAdressView
     {
-        private string file="plik.xml";
-        private string file2 ="plik2.xml";
+        private readonly string file = "plik.json";
+        private readonly string file2 = "plik2.json";
+
+        private ContactController _controller;
+
         public AdressView()
         {
             InitializeComponent();
         }
+
         private void Clear_Fields()
         {
-            this.First.Text = "";
-            this.Last.Text = "";
-            this.phone.Text = "";
+            First.Text = "";
+            Last.Text = "";
+            phone.Text = "";
         }
-        ContactController _controller;
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Clear_Fields();
+        }
+
         #region Events raised back to controller
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,194 +38,186 @@ namespace MVC_View
 
         private void button5_Click(object sender, EventArgs e)
         {
-            int c = 0;
-            if (this.First.Text.Length > 0) c++;
-            if (this.Last.Text.Length > 0) c++;
-            if (this.phone.Text.Length > 0) c++;
-            if(c>0)
+            var c = 0;
+            if (First.Text.Length > 0) c++;
+            if (Last.Text.Length > 0) c++;
+            if (phone.Text.Length > 0) c++;
+            if (c > 0)
             {
-                int n = this._controller.Users.Count;
-                string v = n.ToString();
-                this._controller.AddNewContact(this.First.Text, this.Last.Text, this.phone.Text, v);
-                this._controller.Save();
+                var n = _controller.Users.Count;
+                var v = n.ToString();
+                _controller.AddNewContact(First.Text, Last.Text, phone.Text, v);
+                _controller.Save();
                 if (radioButton1.Checked)
                 {
-                    _controller.UpdateFile(_controller.Users,file);
-
+                    _controller.UpdateFile(_controller.Users, file);
                 }
                 else
                 {
-                    _controller.UpdateFile(_controller.Users,file2);
+                    _controller.UpdateFile(_controller.Users, file2);
                 }
                 Clear_Fields();
+                MessageBox.Show("Pomyslnie dodano rekord");
             }
-
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this._controller.RemoveContact();
+            _controller.RemoveContact();
             if (radioButton1.Checked)
             {
                 _controller.UpdateFile(_controller.Users, file);
-
             }
             else
             {
                 _controller.UpdateFile(_controller.Users, file2);
             }
+            MessageBox.Show("Pomyslnie usunieto rekordy");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(radioButton1.Checked)
+            if (radioButton1.Checked)
             {
                 _controller.LoadFromFile(file);
-               
             }
-            else
+            if(radioButton2.Checked)
             {
                 _controller.LoadFromFile(file2);
             }
-            this._controller.LoadView();
 
+            _controller.LoadView();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.listView1.SelectedItems.Count > 0)
-                this._controller.SelectedContactChanged(this.listView1.SelectedItems[0].Text);
+            if (listView1.SelectedItems.Count > 0)
+                _controller.SelectedContactChanged(listView1.SelectedItems[0].Text);
         }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            if (this.First.Text.Length==0 && this.Last.Text.Length == 0 && this.phone.Text.Length== 0)
+            if (First.Text.Length == 0 && Last.Text.Length == 0 && phone.Text.Length == 0)
             {
-                this._controller.RemoveContact();
+                _controller.RemoveContact();
             }
-            this._controller.Save();
+            _controller.Save();
             Clear_Fields();
             if (radioButton1.Checked)
             {
                 _controller.UpdateFile(_controller.Users, file);
-
             }
             else
             {
                 _controller.UpdateFile(_controller.Users, file2);
             }
         }
-        #endregion
 
+        #endregion
 
         #region IAdresView implementation
 
-
-       public void SetController(ContactController controller)
+        public void SetController(ContactController controller)
         {
-            _controller=controller;
+            _controller = controller;
         }
-       public void ClearGrid()
+
+        public void ClearGrid()
         {
-            this.listView1.Columns.Clear();
+            listView1.Columns.Clear();
 
-            this.listView1.Columns.Add("ID",15,HorizontalAlignment.Left);
-            this.listView1.Columns.Add("First Name",94,HorizontalAlignment.Left);
-            this.listView1.Columns.Add("Last Name",94,HorizontalAlignment.Left);
-            this.listView1.Columns.Add("Phone/Email",94,HorizontalAlignment.Left);
+            listView1.Columns.Add("ID", 15, HorizontalAlignment.Left);
+            listView1.Columns.Add("Imie", 94, HorizontalAlignment.Left);
+            listView1.Columns.Add("Nazwisko", 94, HorizontalAlignment.Left);
+            listView1.Columns.Add("telefon/Email", 94, HorizontalAlignment.Left);
 
-            this.listView1.Items.Clear();
-          
-
+            listView1.Items.Clear();
         }
-       public void AddContactToGrid(Contact user)
+
+        public void AddContactToGrid(Contact user)
         {
             ListViewItem parent;
-            parent=this.listView1.Items.Add(user.ID);
+            parent = listView1.Items.Add(user.ID);
             parent.SubItems.Add(user.FirstName);
             parent.SubItems.Add(user.LastName);
             parent.SubItems.Add(user.Phone);
-            
         }
-       public void UpdateGridWithChangedContact(Contact user)
+
+        public void UpdateGridWithChangedContact(Contact user)
         {
-            ListViewItem rowToUpdate=null;
-            foreach (ListViewItem row in this.listView1.Items)
-	        {
-		        if(row.Text==user.ID)
-                {
-                    rowToUpdate=row;
-                }
-        	}
-            if(rowToUpdate!=null)
+            ListViewItem rowToUpdate = null;
+            foreach (ListViewItem row in listView1.Items)
             {
-                rowToUpdate.Text=user.ID;
-                rowToUpdate.SubItems[1].Text=user.FirstName;
-                rowToUpdate.SubItems[2].Text=user.LastName;
-                rowToUpdate.SubItems[3].Text=user.Phone;
-
-
-            }
-          
-        }
-       public void RemoveContactFromGrid(Contact user)
-        {
-            ListViewItem rowToDelete=null;
-            foreach (ListViewItem row in this.listView1.Items)
-	        {
-                if(row.Text==user.ID)
+                if (row.Text == user.ID)
                 {
-                    rowToDelete=row;
+                    rowToUpdate = row;
                 }
             }
-            if(rowToDelete!=null)
+            if (rowToUpdate != null)
             {
-                this.listView1.Items.Remove(rowToDelete);
-                this.listView1.Focus();
-                
+                rowToUpdate.Text = user.ID;
+                rowToUpdate.SubItems[1].Text = user.FirstName;
+                rowToUpdate.SubItems[2].Text = user.LastName;
+                rowToUpdate.SubItems[3].Text = user.Phone;
+            }
+        }
+
+        public void RemoveContactFromGrid(Contact user)
+        {
+            ListViewItem rowToDelete = null;
+            foreach (ListViewItem row in listView1.Items)
+            {
+                if (row.Text == user.ID)
+                {
+                    rowToDelete = row;
+                }
+            }
+            if (rowToDelete != null)
+            {
+                listView1.Items.Remove(rowToDelete);
+                listView1.Focus();
             }
         }
 
         public string GetIdOfSelectedContactInGrid()
         {
-            if(this.listView1.SelectedItems.Count>0)
-                return this.listView1.SelectedItems[0].Text;
-            else
-                return"";
+            if (listView1.SelectedItems.Count > 0)
+                return listView1.SelectedItems[0].Text;
+            return "";
         }
+
         public void SetSelectedContactInGrid(Contact user)
         {
-            foreach (ListViewItem row in this.listView1.Items)
+            foreach (ListViewItem row in listView1.Items)
             {
                 if (row.Text == user.ID)
                     row.Selected = true;
             }
         }
+
         public string FirstName
         {
-            get { return this.First.Text; }
-            set { this.First.Text = value; }
+            get { return First.Text; }
+            set { First.Text = value; }
         }
+
         public string LastName
         {
-            get { return this.Last.Text; }
-            set { this.Last.Text = value; }
+            get { return Last.Text; }
+            set { Last.Text = value; }
         }
-        public string Phone 
+
+        public string Phone
         {
-            get{return this.phone.Text;}
-            set{this.phone.Text = value;}
+            get { return phone.Text; }
+            set { phone.Text = value; }
         }
 
         #endregion
 
-        private void button6_Click(object sender, EventArgs e)
+        private void AdressView_Load(object sender, EventArgs e)
         {
-            Clear_Fields();
+            _controller.LoadView();
         }
-
-        
-
     }
 }
-
-

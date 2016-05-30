@@ -1,29 +1,16 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters;
-using System.Xml.Serialization;
-using System.IO;
-
 using MVC_Model;
-
 
 
 namespace MVC_Controler
 {
-   public class ContactController
+    public class ContactController
     {
-        IAdressView _view;
-        public List<Contact> _users;
-        Contact _selectedContact;
-
-      
-
+        private readonly IAdressView _view;
+        private List<Contact> _users;
+        private Contact _selectedContact;
 
 
         public ContactController(IAdressView view, List<Contact> users)
@@ -32,7 +19,8 @@ namespace MVC_Controler
             _users = users;
             view.SetController(this);
         }
-        public List<Contact>  Users
+
+        public List<Contact> Users
         {
             get { return _users; }
         }
@@ -43,24 +31,26 @@ namespace MVC_Controler
             _view.LastName = usr.LastName;
             _view.Phone = usr.Phone;
         }
+
         private void updateContactWithViewValues(Contact usr)
         {
             usr.FirstName = _view.FirstName;
             usr.LastName = _view.LastName;
             usr.Phone = _view.Phone;
         }
+
         public void LoadView()
         {
             _view.ClearGrid();
-            foreach (Contact usr in _users)
+            foreach (var usr in _users)
                 _view.AddContactToGrid(usr);
 
             //_view.SetSelectedContactInGrid((Contact)_users[0]);
-
         }
+
         public void SelectedContactChanged(string selectedContactId)
         {
-            foreach (Contact usr in this._users)
+            foreach (var usr in _users)
             {
                 if (usr.ID == selectedContactId)
                 {
@@ -71,25 +61,26 @@ namespace MVC_Controler
                 }
             }
         }
-        public void AddNewContact(string fn,string ln,string var,string id)
+
+        public void AddNewContact(string fn, string ln, string var, string id)
         {
-            _selectedContact = new Contact(fn/*firstname*/,
-                                    ln /*lastname*/,
-                                      var/*var*/,
-                                     id/*id*/
-                                     );
+            _selectedContact = new Contact(fn /*firstname*/,
+                ln /*lastname*/,
+                var /*var*/,
+                id /*id*/
+                );
 
-            this.updateViewDetailValues(_selectedContact);
-
+            updateViewDetailValues(_selectedContact);
         }
+
         public void RemoveContact()
         {
-            string id = this._view.GetIdOfSelectedContactInGrid();
+            var id = _view.GetIdOfSelectedContactInGrid();
             Contact userToRemove = null;
 
             if (id != "")
             {
-                foreach (Contact usr in this._users)
+                foreach (var usr in _users)
                 {
                     if (usr.ID == id)
                     {
@@ -100,58 +91,55 @@ namespace MVC_Controler
 
                 if (userToRemove != null)
                 {
-                    int newSelectedIndex = this._users.IndexOf(userToRemove);
-                    this._users.Remove(userToRemove);
-                    this._view.RemoveContactFromGrid(userToRemove);
+                    var newSelectedIndex = _users.IndexOf(userToRemove);
+                    _users.Remove(userToRemove);
+                    _view.RemoveContactFromGrid(userToRemove);
 
                     if (newSelectedIndex > -1 && newSelectedIndex < _users.Count)
                     {
-                        this._view.SetSelectedContactInGrid((Contact)_users[newSelectedIndex]);
+                        _view.SetSelectedContactInGrid(_users[newSelectedIndex]);
                     }
                 }
             }
         }
+
         public void Save()
         {
             updateContactWithViewValues(_selectedContact);
-            if (!this._users.Contains(_selectedContact))
+            if (!_users.Contains(_selectedContact))
             {
                 // Add new user
-                this._users.Add(_selectedContact);
-                this._view.AddContactToGrid(_selectedContact);
+                _users.Add(_selectedContact);
+                _view.AddContactToGrid(_selectedContact);
             }
             else
             {
                 // Update existing
-                this._view.UpdateGridWithChangedContact(_selectedContact);
+                _view.UpdateGridWithChangedContact(_selectedContact);
             }
             _view.SetSelectedContactInGrid(_selectedContact);
-
         }
+
         public void UpdateFile(List<Contact> list, string _fn)
         {
-            StorageService xd = new StorageService();
+            var xd = new StorageService();
             xd.Save(_fn, list);
-            
-            
         }
 
 
         public void LoadFromFile(string _fn)
         {
-            StorageService xd = new StorageService();
+            var xd = new StorageService();
             try
             {
+                _users.Clear();
                 _users = xd.Load(_fn);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Musisz najpierw cos zapisac żeby odczytywać");
             }
             LoadView();
-    
         }
-
-
     }
 }

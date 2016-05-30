@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Bson;
-using System.Windows.Forms;
-using System.IO;
+
 
 namespace MVC_Model
 {
@@ -22,13 +18,9 @@ namespace MVC_Model
 
         public List<Contact> Load(string filename)
         {
-           
-            
-                var content = File.ReadAllText(filename, Encoding.UTF8);
-                //MessageBox.Show(content);
-                return JsonConvert.DeserializeObject<IEnumerable<Contact>>(content).ToList();
-            
-            
+            var content = File.ReadAllText(filename, Encoding.UTF8);
+            //MessageBox.Show(content);
+            return JsonConvert.DeserializeObject<IEnumerable<Contact>>(content).ToList();
         }
     }
 }
