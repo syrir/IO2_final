@@ -42,6 +42,7 @@ namespace MVC_Controler
         public void LoadView()
         {
             _view.ClearGrid();
+            //_users.Sort();
             foreach (var usr in _users)
                 _view.AddContactToGrid(usr);
 
@@ -110,6 +111,7 @@ namespace MVC_Controler
             {
                 // Add new user
                 _users.Add(_selectedContact);
+                _users.Sort();
                 _view.AddContactToGrid(_selectedContact);
             }
             else
@@ -134,6 +136,7 @@ namespace MVC_Controler
             {
                 _users.Clear();
                 _users = xd.Load(_fn);
+                _users.Sort((x, y) => x.LastName.CompareTo(y.LastName));
             }
             catch (Exception)
             {

@@ -53,13 +53,13 @@ namespace MVC_View
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var c = 0;
                 var n = _controller.Users.Count;
                 var v = n.ToString();
                 if (validateFields())
                 {
                     _controller.AddNewContact(First.Text, Last.Text, phone.Text, v);
                     _controller.Save();
+                    _controller.Users.Sort();
                     if (radioButton1.Checked)
                     {
                         _controller.UpdateFile(_controller.Users, file);
@@ -69,6 +69,7 @@ namespace MVC_View
                         _controller.UpdateFile(_controller.Users, file2);
                     }
                     Clear_Fields();
+                    _controller.LoadView();
                     MessageBox.Show("Pomyslnie dodano rekord");
                 }
                 else
@@ -76,6 +77,7 @@ namespace MVC_View
                     MessageBox.Show("Niepoprawne lub niepełne dane");
                 
                 }
+           
         }
 
         private void button4_Click(object sender, EventArgs e)

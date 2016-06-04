@@ -1,16 +1,14 @@
 ﻿using System;
+using System.Globalization;
 using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace MVC_Model
 {
     [Serializable]
-    public class Contact
+    public class Contact: IComparable<Contact>
     {
-        /*public enum TypeOfContact
-        {
-            Phone = 1, Email = 2
-        }*/
+      
         private string _FirstName;
 
         public string FirstName
@@ -99,6 +97,18 @@ namespace MVC_Model
         public bool validateString(string xd)
         {
             return xd.Length>0;
+        }
+
+        public int CompareTo(Contact other)
+        {
+
+            if (String.Compare(this._LastName, other._LastName, new CultureInfo("en-US"), CompareOptions.IgnoreCase) < 0)
+            {
+                return -1;
+            }
+            else return 1;
+           
+
         }
     }
 }
