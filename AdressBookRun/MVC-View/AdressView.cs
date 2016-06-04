@@ -12,6 +12,21 @@ namespace MVC_View
 
         private ContactController _controller;
 
+
+        public bool validateFields()
+        {
+            Contact xd = new Contact();
+            if (radioButton1.Checked)
+            {
+                if (xd.validatePhone(phone.Text) && xd.validateString(Last.Text) && xd.validateString(First.Text)) return true;
+            }
+            else
+            {
+                if (xd.validateEmail(phone.Text) && xd.validateString(Last.Text) && xd.validateString(First.Text)) return true;
+            }
+
+            return false;
+        }
         public AdressView()
         {
             InitializeComponent();
@@ -39,26 +54,28 @@ namespace MVC_View
         private void button5_Click(object sender, EventArgs e)
         {
             var c = 0;
-            if (First.Text.Length > 0) c++;
-            if (Last.Text.Length > 0) c++;
-            if (phone.Text.Length > 0) c++;
-            if (c > 0)
-            {
                 var n = _controller.Users.Count;
                 var v = n.ToString();
-                _controller.AddNewContact(First.Text, Last.Text, phone.Text, v);
-                _controller.Save();
-                if (radioButton1.Checked)
+                if (validateFields())
                 {
-                    _controller.UpdateFile(_controller.Users, file);
+                    _controller.AddNewContact(First.Text, Last.Text, phone.Text, v);
+                    _controller.Save();
+                    if (radioButton1.Checked)
+                    {
+                        _controller.UpdateFile(_controller.Users, file);
+                    }
+                    else
+                    {
+                        _controller.UpdateFile(_controller.Users, file2);
+                    }
+                    Clear_Fields();
+                    MessageBox.Show("Pomyslnie dodano rekord");
                 }
                 else
                 {
-                    _controller.UpdateFile(_controller.Users, file2);
+                    MessageBox.Show("Niepoprawne lub niepełne dane");
+                
                 }
-                Clear_Fields();
-                MessageBox.Show("Pomyslnie dodano rekord");
-            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -72,6 +89,7 @@ namespace MVC_View
             {
                 _controller.UpdateFile(_controller.Users, file2);
             }
+            Clear_Fields();
             MessageBox.Show("Pomyslnie usunieto rekordy");
         }
 
@@ -99,7 +117,7 @@ namespace MVC_View
         {
             if (First.Text.Length == 0 && Last.Text.Length == 0 && phone.Text.Length == 0)
             {
-                _controller.RemoveContact();
+                return ;
             }
             _controller.Save();
             Clear_Fields();

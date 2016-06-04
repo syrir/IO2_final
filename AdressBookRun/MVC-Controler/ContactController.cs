@@ -12,7 +12,6 @@ namespace MVC_Controler
         private List<Contact> _users;
         private Contact _selectedContact;
 
-
         public ContactController(IAdressView view, List<Contact> users)
         {
             _view = view;
@@ -27,6 +26,7 @@ namespace MVC_Controler
 
         private void updateViewDetailValues(Contact usr)
         {
+
             _view.FirstName = usr.FirstName;
             _view.LastName = usr.LastName;
             _view.Phone = usr.Phone;

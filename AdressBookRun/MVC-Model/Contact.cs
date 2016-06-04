@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace MVC_Model
@@ -76,6 +77,28 @@ namespace MVC_Model
 
         public Contact()
         {
+        }
+        public bool validatePhone(string xd)
+        {
+            int value;
+            return int.TryParse(xd,out value);
+        }
+        public bool validateEmail(string xd)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(xd);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+        public bool validateString(string xd)
+        {
+            return xd.Length>0;
         }
     }
 }
