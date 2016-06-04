@@ -122,6 +122,7 @@ namespace MVC_View
                 return ;
             }
             _controller.Save();
+            _controller.Users.Sort();
             Clear_Fields();
             if (radioButton1.Checked)
             {
@@ -131,6 +132,7 @@ namespace MVC_View
             {
                 _controller.UpdateFile(_controller.Users, file2);
             }
+            _controller.LoadView();
         }
 
         #endregion
